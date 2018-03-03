@@ -130,7 +130,7 @@ class AudioPlayer {
 		this.buttonStop.onclick = this.stop.bind(this);
 		this.buttonBack.onclick = this.back.bind(this);
 		this.buttonNext.onclick = this.next.bind(this);
-		setInterval(() => this.audio.ended && this.player.classList.remove('play') , 2000);
+		setInterval(() => this.audio.ended && this.stop() , 2000);
 	}
 }
 
