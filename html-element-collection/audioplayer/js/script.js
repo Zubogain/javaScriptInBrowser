@@ -63,7 +63,7 @@ class AudioPlayer {
 		Play and pause the track
 		return undefined
 	*/
-	audioPlayAndPause() {
+	playAndPause() {
 		this.isPlaying === true ? this.isPlaying = false: this.isPlaying = true;
 
 		if(this.player.classList.contains('play')) {
@@ -79,7 +79,7 @@ class AudioPlayer {
 		Stop track
 		return undefined
 	*/
-	audioStop() {
+	stop() {
 		this.player.classList.remove('play');
 		this.isPlaying = false;
 		this.audio.pause();
@@ -90,7 +90,7 @@ class AudioPlayer {
 		Previous track
 		return undefined
 	*/
-	audioBack() {
+	back() {
 		if(this.index > 0) {
 			this.index--;
 			this.isPlaying = false;
@@ -103,7 +103,7 @@ class AudioPlayer {
 		Next track
 		return undefined
 	*/
-	audioNext() {
+	next() {
 		if(this.index < this.audioArray.length - 1) {
 			this.index++;
 			this.isPlaying = false;
@@ -116,7 +116,7 @@ class AudioPlayer {
 		Changes the track to the current song and the song name
 		return undefined
 	*/
-	audioChange() {
+	change() {
 		this.title.title = this.audioArray[this.index].title;
 		this.audio.src = this.audioArray[this.index].link;
 	}
