@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Форма обратной связи</title>
+  <link rel="stylesheet" href="./css/form.css">
+</head>
+<body>
+  <h1>Форма обратной связи</h1>
+
+  <form class="contentform" novalidate>
+  	<fieldset>
+      <label class="form-group">
+        <p>Фамилия <span>*</span></p>
+        <span class="icon-case"><i class="fa fa-male"></i></span>
+        <input type="text" name="lastname">
+      </label>
+
+      <label class="form-group">
+        <p>Имя <span>*</span></p>
+        <span class="icon-case"><i class="fa fa-user"></i></span>
+			  <input type="text" name="name">
+		  </label>
+
+		  <label class="form-group">
+		    <p>Электронная почта <span>*</span></p>
+		    <span class="icon-case"><i class="fa fa-envelope-o"></i></span>
+        <input type="email" name="email">
+			</label>
+
+  		<label class="form-group">
+		    <p>Компания <span>*</span></p>
+		    <span class="icon-case"><i class="fa fa-home"></i></span>
+			  <input type="text" name="company">
+	  	</label>
+
+		  <label class="form-group">
+		    <p>Адрес офиса <span>*</span></p>
+		    <span class="icon-case"><i class="fa fa-location-arrow"></i></span>
+			  <input type="text" name="address">
+	  	</label>
+
+		  <label class="form-group">
+		    <p>Почтовый индекс <span>*</span></p>
+		    <span class="icon-case"><i class="fa fa-map-marker"></i></span>
+			  <input type="text" name="zip">
+	  	</label>
+    </fieldset>
+
+    <fieldset>
+		  <label class="form-group">
+		    <p>Город <span>*</span></p>
+		    <span class="icon-case"><i class="fa fa-building-o"></i></span>
+			  <input type="text" name="city">
+	  	</label>
+
+		  <label class="form-group">
+		    <p>Номер телефона <span>*</span></p>
+		    <span class="icon-case"><i class="fa fa-phone"></i></span>
+			  <input type="tel" name="phone">
+	  	</label>
+
+		  <label class="form-group">
+		    <p>Специализация <span>*</span></p>
+		    <span class="icon-case"><i class="fa fa-info"></i></span>
+        <input type="text" name="role">
+			</label>
+
+  		<label class="form-group">
+	    	<p>Тема сообщения <span>*</span></p>
+		    <span class="icon-case"><i class="fa fa-comment-o"></i></span>
+        <input type="text" name="subject">
+			</label>
+
+  		<label class="form-group">
+	    	<p>Сообщение <span>*</span></p>
+		    <span class="icon-case"><i class="fa fa-comments-o"></i></span>
+        <textarea name="message" rows="14"></textarea>
+  		</label>
+  	</fieldset>
+    <button type="submit" class="button-contact" disabled>Отправить сообщение</button>
+  </form>
+  <main class="hidden" id="output">
+    <h2>Ваше сообщение</h2>
+    <p>Привет, меня зовут <output id="name"></output> <output id="lastname"></output>. Я представляю компанию <output id="company"></output>. Специализация нашей компании — <output id="role"></output>.</p>
+    <p>Наш адрес:</p>
+    <address><output id="zip"></output>, город <output id="city"></output>, <output id="address"></output></address>
+    <h3><output id="subject"></output></h3>
+    <p><output id="message"></output></p>
+    <button class="button-contact">Изменить сообщение</button>
+  </main>
+
+  <script src="https://use.fontawesome.com/70378a66b8.js"></script>
+</body>
+</html>
