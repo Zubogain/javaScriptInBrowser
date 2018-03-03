@@ -94,8 +94,8 @@ class AudioPlayer {
 		if(this.index > 0) {
 			this.index--;
 			this.isPlaying = false;
-			this.audioStop();
-			this.audioChange();
+			this.stop();
+			this.change();
 		}
 	}
 
@@ -107,8 +107,8 @@ class AudioPlayer {
 		if(this.index < this.audioArray.length - 1) {
 			this.index++;
 			this.isPlaying = false;
-			this.audioStop();
-			this.audioChange();
+			this.stop();
+			this.change();
 		}
 	}
 
