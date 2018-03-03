@@ -126,10 +126,10 @@ class AudioPlayer {
 		return undefined
 	*/
 	start() {
-		this.buttonPlayAndPause.onclick = this.audioPlayAndPause.bind(this);
-		this.buttonStop.onclick = this.audioStop.bind(this);
-		this.buttonBack.onclick = this.audioBack.bind(this);
-		this.buttonNext.onclick = this.audioNext.bind(this);
+		this.buttonPlayAndPause.onclick = this.playAndPause.bind(this);
+		this.buttonStop.onclick = this.stop.bind(this);
+		this.buttonBack.onclick = this.back.bind(this);
+		this.buttonNext.onclick = this.next.bind(this);
 		setInterval(() => this.audio.ended && this.player.classList.remove('play') , 2000);
 	}
 }
