@@ -64,14 +64,14 @@ class AudioPlayer {
 		return undefined
 	*/
 	playAndPause() {
-		this.isPlaying === true ? this.isPlaying = false: this.isPlaying = true;
-
 		if(this.player.classList.contains('play')) {
 			this.player.classList.remove('play');
 			this.audio.pause();
+			this.isPlaying = false;
 		} else {
 			this.player.classList.add('play');
 			this.audio.play();
+			this.isPlaying = true;
 		}
 	}
 
@@ -81,9 +81,9 @@ class AudioPlayer {
 	*/
 	stop() {
 		this.player.classList.remove('play');
-		this.isPlaying = false;
 		this.audio.pause();
 		this.audio.currentTime = 0;
+		this.isPlaying = false;
 	}
 
 	/*
@@ -93,9 +93,14 @@ class AudioPlayer {
 	back() {
 		if(this.index > 0) {
 			this.index--;
-			this.isPlaying = false;
-			this.stop();
-			this.change();
+			if(this.isPlaying) {
+				this.change();
+				this.audio.play();
+			} else {
+				this.stop();
+				this.change();
+				this.isPlaying = false;
+			}
 		}
 	}
 
@@ -106,9 +111,14 @@ class AudioPlayer {
 	next() {
 		if(this.index < this.audioArray.length - 1) {
 			this.index++;
-			this.isPlaying = false;
-			this.stop();
-			this.change();
+			if(this.isPlaying) {
+				this.change();
+				this.audio.play();
+			} else {
+				this.stop();
+				this.change();
+				this.isPlaying = false;
+			}
 		}
 	}
 
@@ -130,7 +140,7 @@ class AudioPlayer {
 		this.buttonStop.onclick = this.stop.bind(this);
 		this.buttonBack.onclick = this.back.bind(this);
 		this.buttonNext.onclick = this.next.bind(this);
-		setInterval(() => this.audio.ended && this.stop() , 2000);
+		setInterval(() => this.audio.ended && this.stop(), 2000);
 	}
 }
 
