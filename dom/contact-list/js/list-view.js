@@ -36,3 +36,17 @@ function init() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+function viewContacts() {
+  let response = loadContacts();
+  if(response) {
+    try {
+      response = JSON.parse(response);
+      document.getElementsByClassName('contacts-list')[0].innerHTML = response.map(el => `<li data-email="${el.email}" data-phone="${el.phone}"><strong>${el.name}</strong></li>`).join('');
+    } catch(e) {
+      console.error(e.name, e.message);
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', viewContacts);
