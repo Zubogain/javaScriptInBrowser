@@ -1,5 +1,22 @@
 /* Данный JS код */
+document.addEventListener('DOMContentLoaded', () => {
+  const response = new XMLHttpRequest();
+  response.addEventListener('load', viewBooks);
+  response.open('GET', 'https://neto-api.herokuapp.com/book/', true);
+  response.send();
 
+  function viewBooks() {
+    if(response.responseText) {
+      try {
+        const content = document.getElementById('content');
+        const booksArray = JSON.parse(response.responseText);
+        content.innerHTML = booksArray.map(el => `<li data-title="${el.title}" data-author="${el.author.name}" data-info="${el.info}" data-price="${el.price}"><img src="${el.cover.small}"></li>`).join('');
+      } catch(e) {
+        console.log(e.name, e.message);
+      }
+    }
+  }
+});
 // Регулируем видимость карточки
 function toggleCardVisible () {
  document.getElementById('content').classList.toggle('hidden');
