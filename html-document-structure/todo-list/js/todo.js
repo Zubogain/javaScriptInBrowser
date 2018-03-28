@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	const DONE = MAIN.querySelectorAll('.done > label > input');
 	const UNDONE = MAIN.querySelectorAll('.undone > label > input');
 
-	for (var i = 0; i < UNDONE.length; i++) {
+	for (let i = 0; i < UNDONE.length; i++) {
 		UNDONE[i].addEventListener('click', done);
 	}
 
-	for (var i = 0; i < DONE.length; i++) {
+	for (let i = 0; i < DONE.length; i++) {
 		DONE[i].addEventListener('click', undone);
 	}
 
@@ -24,4 +24,4 @@ document.addEventListener('DOMContentLoaded', () => {
 		this.addEventListener('click', done);
 		this.removeAttribute('checked');
 	}
-})
+});
